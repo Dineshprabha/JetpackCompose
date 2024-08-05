@@ -76,4 +76,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
+
+
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 }
