@@ -3,6 +3,7 @@ package com.dinesh.jetpackcompose.gemini_chat_bot
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.ai.client.generativeai.BuildConfig
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.launch
@@ -15,7 +16,7 @@ class ChatViewModel : ViewModel() {
 
     val generativeModel : GenerativeModel = GenerativeModel(
         modelName = "gemini-1.5-flash",
-        apiKey = Constants.APIKEY
+        apiKey = com.dinesh.jetpackcompose.BuildConfig.API_KEY
     )
 
     fun sendMessage(question : String) {
