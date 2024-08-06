@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 import com.dinesh.jetpackcompose.bottom_nav_bar.MainScreen
+import com.dinesh.jetpackcompose.bottom_nav_using_screens.MyBottomAppBar
 import com.dinesh.jetpackcompose.gemini_chat_bot.ChatPage
 import com.dinesh.jetpackcompose.gemini_chat_bot.ChatViewModel
 import com.dinesh.jetpackcompose.todo.ToDoViewModel
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
 //            val toDoViewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 //            val chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
             JetpackComposeTheme {
-                MainScreen()
+                MyBottomAppBar()
             }
         }
     }
