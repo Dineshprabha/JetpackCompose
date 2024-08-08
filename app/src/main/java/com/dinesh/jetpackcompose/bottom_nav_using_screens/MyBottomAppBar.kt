@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.dinesh.jetpackcompose.bottom_nav_using_screens.navigation_drawer.MyNavDrawer
 import com.dinesh.jetpackcompose.ui.theme.GreenJC
 
 @Composable
@@ -129,6 +130,8 @@ fun MyBottomAppBar() {
             }
         }
     ) { paddingValues ->
+        MyNavDrawer()
+
         NavHost(navController = navigationController, startDestination = Screens.Home.screens,
             modifier = Modifier.padding(paddingValues)) {
             composable(Screens.Home.screens){ HomeScreen()}
