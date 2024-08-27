@@ -22,64 +22,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val bluetoothManager by lazy {
-        applicationContext.getSystemService(BluetoothManager::class.java)
-    }
-    private val bluetoothAdapter by lazy {
-        bluetoothManager?.adapter
-    }
-
-    private val isBluetoothEnabled: Boolean
-        get() = bluetoothAdapter?.isEnabled == true
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val enableBluetoothLauncher = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) { /* Not needed */ }
-
-        val permissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestMultiplePermissions()
-        ) { perms ->
-            val canEnableBluetooth = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                perms[android.Manifest.permission.BLUETOOTH_CONNECT] == true
-            } else true
-
-            if (canEnableBluetooth && !isBluetoothEnabled) {
-                enableBluetoothLauncher.launch(
-                    Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                )
-            }
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            permissionLauncher.launch(
-                arrayOf(
-                    android.Manifest.permission.BLUETOOTH_SCAN,
-                    Manifest.permission.BLUETOOTH_CONNECT,
-                )
-            )
-        }
 
         setContent {
 //            val weatherViewModel = ViewModelProvider(this)[WeatherViewModel::class.java]
 //            val toDoViewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 //            val chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
             JetpackComposeTheme {
-
-                val viewModel = hiltViewModel<BluetoothViewModel>()
-                val state by viewModel.state.collectAsState()
-                Surface(
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    DeviceScreen(
-                        state = state,
-                        onStartScan = viewModel::startScan,
-                        onStopScan = viewModel::stopScan
-                    )
-                }
+                ButtonScreen(this)
             }
         }
 
