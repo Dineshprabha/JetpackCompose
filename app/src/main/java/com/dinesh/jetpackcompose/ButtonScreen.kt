@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat.startActivity
 import com.dinesh.jetpackcompose.bluetooth_chat_app.BluetoothAppActivity
+import com.dinesh.jetpackcompose.gemini_chat_bot.GeminiChatActivity
 import com.dinesh.jetpackcompose.nested_list_with_checkbox.CheckBoxActivity
 
 @Composable
@@ -48,11 +49,11 @@ fun ButtonScreen(
         Button(
             modifier = Modifier.fillMaxWidth(),
             onClick = {
-                val intent = Intent(context, BluetoothAppActivity::class.java)
+                val intent = Intent(context, GeminiChatActivity::class.java)
                 startActivity(context, intent, null)
 
             }) {
-            Text(text = "Open Bluetooth Activity")
+            Text(text = "Gemini Chat Bot")
         }
 
     }

@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.sp
 import com.dinesh.jetpackcompose.ui.theme.Purple40
 
 @Composable
-fun ChatPage(modifier: Modifier = Modifier, chatViewModel: ChatViewModel) {
+fun ChatPage(chatViewModel: ChatViewModel) {
     Column {
         AppBar()
 
