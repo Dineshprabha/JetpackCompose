@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat.startActivity
 import com.dinesh.jetpackcompose.bluetooth_chat_app.BluetoothAppActivity
 import com.dinesh.jetpackcompose.gemini_chat_bot.GeminiChatActivity
 import com.dinesh.jetpackcompose.nested_list_with_checkbox.CheckBoxActivity
+import com.dinesh.jetpackcompose.painting.PaintActivity
 
 @Composable
 fun ButtonScreen(
@@ -54,6 +55,16 @@ fun ButtonScreen(
 
             }) {
             Text(text = "Gemini Chat Bot")
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                val intent = Intent(context, PaintActivity::class.java)
+                startActivity(context, intent, null)
+
+            }) {
+            Text(text = "Paint")
         }
 
     }
