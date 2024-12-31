@@ -87,6 +87,8 @@ dependencies {
 
     implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.4")
+
 
     implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
@@ -97,9 +99,12 @@ dependencies {
     //    Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-compiler:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
     implementation("androidx.biometric:biometric:1.1.0")
+
+    implementation("com.google.accompanist:accompanist-flowlayout:0.23.1")
 }

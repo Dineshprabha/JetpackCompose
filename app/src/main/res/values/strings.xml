@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">JetpackCompose</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_bluetooth_app">BluetoothAppActivity</string>
+    <string name="title_activity_check_box">CheckBoxActivity</string>
+    <string name="title_activity_gemini_chat">GeminiChatActivity</string>
+    <string name="title_activity_paint">PaintActivity</string>
 </resources>

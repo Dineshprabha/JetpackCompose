@@ -1,7 +1,7 @@
 package com.dinesh.jetpackcompose.biometric_auth.philp_lackner
 
+import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
@@ -11,7 +11,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
 class BiometricPromptManager(
-    private val activity : AppCompatActivity
+    private val activity: Context
 ) {
 
     private val resultChannel = Channel<BiometricResult> ()
@@ -53,25 +53,25 @@ class BiometricPromptManager(
             else -> Unit
         }
 
-        val prompt = BiometricPrompt(
-            activity, object :BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                    super.onAuthenticationError(errorCode, errString)
-                    resultChannel.trySend(BiometricResult.AuthenticationError(errString.toString()))
-                }
-
-                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                    super.onAuthenticationSucceeded(result)
-                    resultChannel.trySend(BiometricResult.AuthenticationSuccess)
-                }
-
-                override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    resultChannel.trySend(BiometricResult.AuthenticationFailed)
-                }
-            }
-        )
-        prompt.authenticate(promptInfo.build())
+//        val prompt = BiometricPrompt(
+//            activity, object :BiometricPrompt.AuthenticationCallback() {
+//                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+//                    super.onAuthenticationError(errorCode, errString)
+//                    resultChannel.trySend(BiometricResult.AuthenticationError(errString.toString()))
+//                }
+//
+//                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+//                    super.onAuthenticationSucceeded(result)
+//                    resultChannel.trySend(BiometricResult.AuthenticationSuccess)
+//                }
+//
+//                override fun onAuthenticationFailed() {
+//                    super.onAuthenticationFailed()
+//                    resultChannel.trySend(BiometricResult.AuthenticationFailed)
+//                }
+//            }
+//        )
+//        prompt.authenticate(promptInfo.build())
     }
 
 
