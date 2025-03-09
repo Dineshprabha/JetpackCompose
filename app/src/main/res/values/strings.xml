@@ -5,4 +5,6 @@
     <string name="title_activity_check_box">CheckBoxActivity</string>
     <string name="title_activity_gemini_chat">GeminiChatActivity</string>
     <string name="title_activity_paint">PaintActivity</string>
+    <string name="title_activity_bottom_app_bar">BottomAppBarActivity</string>
+    <string name="title_activity_product">ProductActivity</string>
 </resources>

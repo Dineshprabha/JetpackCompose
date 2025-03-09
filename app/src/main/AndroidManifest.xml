@@ -21,6 +21,16 @@
         android:theme="@style/Theme.JetpackCompose"
         tools:targetApi="31">
         <activity
+            android:name=".RestApiFakerStore.presentation.ProductActivity"
+            android:exported="false"
+            android:label="@string/title_activity_product"
+            android:theme="@style/Theme.JetpackCompose" />
+        <activity
+            android:name=".bottom_nav_using_screens.BottomAppBarActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_app_bar"
+            android:theme="@style/Theme.JetpackCompose" />
+        <activity
             android:name=".painting.PaintActivity"
             android:exported="false"
             android:label="@string/title_activity_paint"

@@ -1,4 +1,4 @@
-package com.dinesh.jetpackcompose.nested_list_with_checkbox
+package com.dinesh.jetpackcompose.bottom_nav_using_screens
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,18 +11,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dinesh.jetpackcompose.RestApiFakerStore.presentation.screens.ProductsScreen
-import com.dinesh.jetpackcompose.nested_list_with_checkbox.ui.theme.JetpackComposeTheme
-import dagger.hilt.android.AndroidEntryPoint
+import com.dinesh.jetpackcompose.bottom_nav_using_screens.ui.theme.JetpackComposeTheme
 
-@AndroidEntryPoint
-class CheckBoxActivity : ComponentActivity() {
+class BottomAppBarActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         setContent {
             JetpackComposeTheme {
-                ProductsScreen()
+                MyBottomAppBar()
             }
         }
     }

@@ -6,8 +6,10 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
@@ -20,8 +22,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -33,75 +38,39 @@ import com.dinesh.jetpackcompose.R
 @Composable
 fun ParentCheckBox() {
 
-    val isChecked = remember {
-        mutableStateOf(false)
-    }
+    var parentChecked by remember { mutableStateOf(false) }
+    val children = remember { mutableStateListOf(false, false, false) }
 
-    val departmentList = mutableListOf<Departments>()
-
-    val department1 = Departments(
-        departmentName = "Company",
-        sectionName = listOf("Accounts", "Payroll", "Sales", "Marketing", "Software")
-    )
-    val department2 = Departments(
-        departmentName = "University",
-        sectionName = listOf("Mathematics", "Medical", "Arts")
-    )
-    val department3 = Departments(
-        departmentName = "Hospital",
-        sectionName = listOf("General Physician")
-    )
-    departmentList.add(department1)
-    departmentList.add(department2)
-    departmentList.add(department3)
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .background(Color.Gray)
-            .clickable { },
-    ) {
-        Column {
-            Surface() {
-                LazyColumn(
-                    modifier = Modifier
-                        .wrapContentHeight()
-                        .padding(top = 8.dp)
-                        .background(Color.Gray)
-                ) {
-                    item {
-                        for (item in departmentList) {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .fillMaxHeight()
-                                    .padding(8.dp)
-                                    .background(Color.Gray)
-                            ) {
-                                SingleCheckBox(onChecked = isChecked, item.departmentName)
-                                if (item.sectionName.isNotEmpty()) {
-                                    for (subItem in item.sectionName) {
-                                        Column(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .fillMaxHeight()
-                                                .background(colorResource(id = R.color.teal_700))
-                                        ) {
-                                            SingleCheckBox(onChecked = isChecked, subItem)
-                                            Divider()
-                                        }
-
-                                    }
-
-                                }
-                                //Sublist
-
-                                Divider()
-                            }
-                        }
+    // Parent Checkbox
+    Column(modifier = Modifier.padding(16.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Checkbox(
+                checked = parentChecked,
+                onCheckedChange = { isChecked ->
+                    parentChecked = isChecked
+                    // Set all child checkboxes to the parent's state
+                    children.indices.forEach { index ->
+                        children[index] = isChecked
                     }
                 }
+            )
+            Text(text = "Parent Checkbox", modifier = Modifier.padding(start = 8.dp))
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Child Checkboxes
+        children.forEachIndexed { index, isChecked ->
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(start = 24.dp)) {
+                Checkbox(
+                    checked = isChecked,
+                    onCheckedChange = { checked ->
+                        children[index] = checked
+                        // Update parent checkbox: checked if all children are checked
+                        parentChecked = children.all { it }
+                    }
+                )
+                Text(text = "Child ${index + 1}", modifier = Modifier.padding(start = 8.dp))
             }
         }
     }
