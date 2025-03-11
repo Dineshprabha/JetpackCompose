@@ -81,6 +81,16 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
+    /*Navigation*/
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+
+    /*material library*/
+    implementation(libs.androidx.material)
+
+    /*System Ui Controller*/
+    implementation(libs.accompanist.systemuicontroller)
+
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")

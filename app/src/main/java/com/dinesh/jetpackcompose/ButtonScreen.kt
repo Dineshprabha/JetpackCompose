@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat.startActivity
 import com.dinesh.jetpackcompose.bluetooth_chat_app.BluetoothAppActivity
 import com.dinesh.jetpackcompose.bottom_nav_using_screens.BottomAppBarActivity
+import com.dinesh.jetpackcompose.floating_bottom_nav_bar.FloatingBottomNavActivity
 import com.dinesh.jetpackcompose.gemini_chat_bot.GeminiChatActivity
 import com.dinesh.jetpackcompose.nested_list_with_checkbox.CheckBoxActivity
 import com.dinesh.jetpackcompose.painting.PaintActivity
@@ -98,6 +99,16 @@ fun ButtonScreen(
 
             }) {
             Text(text = "MyBottomAppBar")
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                val intent = Intent(context, FloatingBottomNavActivity::class.java)
+                startActivity(context, intent, null)
+
+            }) {
+            Text(text = "Floating Nav Bar")
         }
 
     }

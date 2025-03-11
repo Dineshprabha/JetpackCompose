@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             JetpackComposeTheme {
-                WelcomeScreen()
+                ButtonScreen(context = this)
             }
         }
     }
