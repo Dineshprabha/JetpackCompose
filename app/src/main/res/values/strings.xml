@@ -8,4 +8,6 @@
     <string name="title_activity_bottom_app_bar">BottomAppBarActivity</string>
     <string name="title_activity_product">ProductActivity</string>
     <string name="title_activity_floating_bottom_nav">FloatingBottomNavActivity</string>
+    <string name="title_activity_animation">AnimationActivity</string>
+    <string name="title_activity_bio_metric_auth">BioMetricAuthActivity</string>
 </resources>

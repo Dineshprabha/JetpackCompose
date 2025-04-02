@@ -53,11 +53,6 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
-//    @Provides
-//    fun providesMediaAPI(retrofit: Retrofit) : MediaAPIService{
-//        return retrofit.create(MediaAPIService::class.java)
-//    }
-
     @Singleton
     @Provides
     fun providesApiService(retrofit: Retrofit) : APIInterface{

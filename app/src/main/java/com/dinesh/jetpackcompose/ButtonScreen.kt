@@ -19,6 +19,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat.startActivity
+import com.dinesh.jetpackcompose.animations.AnimationActivity
+import com.dinesh.jetpackcompose.biometric_auth.BioMetricAuthActivity
 import com.dinesh.jetpackcompose.bluetooth_chat_app.BluetoothAppActivity
 import com.dinesh.jetpackcompose.bottom_nav_using_screens.BottomAppBarActivity
 import com.dinesh.jetpackcompose.floating_bottom_nav_bar.FloatingBottomNavActivity
@@ -109,6 +111,27 @@ fun ButtonScreen(
 
             }) {
             Text(text = "Floating Nav Bar")
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                val intent = Intent(context, AnimationActivity::class.java)
+                startActivity(context, intent, null)
+
+            }) {
+            Text(text = "Animation")
+        }
+
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                val intent = Intent(context, BioMetricAuthActivity::class.java)
+                startActivity(context, intent, null)
+
+            }) {
+            Text(text = "BioMetric Auth")
         }
 
     }

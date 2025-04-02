@@ -3,14 +3,6 @@ package com.dinesh.jetpackcompose.nested_list_with_checkbox
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.dinesh.jetpackcompose.RestApiFakerStore.presentation.screens.ProductsScreen
 import com.dinesh.jetpackcompose.nested_list_with_checkbox.ui.theme.JetpackComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
