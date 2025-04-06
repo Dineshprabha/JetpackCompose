@@ -10,4 +10,5 @@
     <string name="title_activity_floating_bottom_nav">FloatingBottomNavActivity</string>
     <string name="title_activity_animation">AnimationActivity</string>
     <string name="title_activity_bio_metric_auth">BioMetricAuthActivity</string>
+    <string name="title_activity_translator">TranslatorActivity</string>
 </resources>

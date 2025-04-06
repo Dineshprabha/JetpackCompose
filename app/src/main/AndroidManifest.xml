@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.bluetooth" />
 
     <application
@@ -20,6 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackCompose"
         tools:targetApi="31">
+        <activity
+            android:name=".translator.TranslatorActivity"
+            android:exported="false"
+            android:label="@string/title_activity_translator"
+            android:theme="@style/Theme.JetpackCompose" />
         <activity
             android:name=".biometric_auth.BioMetricAuthActivity"
             android:exported="false"

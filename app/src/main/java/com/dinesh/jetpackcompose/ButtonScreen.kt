@@ -27,6 +27,7 @@ import com.dinesh.jetpackcompose.floating_bottom_nav_bar.FloatingBottomNavActivi
 import com.dinesh.jetpackcompose.gemini_chat_bot.GeminiChatActivity
 import com.dinesh.jetpackcompose.nested_list_with_checkbox.CheckBoxActivity
 import com.dinesh.jetpackcompose.painting.PaintActivity
+import com.dinesh.jetpackcompose.translator.TranslatorActivity
 import kotlinx.coroutines.launch
 
 @Composable
@@ -132,6 +133,16 @@ fun ButtonScreen(
 
             }) {
             Text(text = "BioMetric Auth")
+        }
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {
+                val intent = Intent(context, TranslatorActivity::class.java)
+                startActivity(context, intent, null)
+
+            }) {
+            Text(text = "Translator App")
         }
 
     }

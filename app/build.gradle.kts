@@ -100,7 +100,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.4")
 
-
     implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 
     implementation("androidx.media3:media3-exoplayer:1.2.1")
@@ -113,9 +112,14 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.50")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
+    val CAMERAX_VERSION = "1.2.3"
+
+    implementation("androidx.camera:camera-camera2:$CAMERAX_VERSION")
+    implementation("androidx.camera:camera-lifecycle:$CAMERAX_VERSION")
+    implementation("androidx.camera:camera-view:$CAMERAX_VERSION")
+
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
-
     implementation("androidx.biometric:biometric:1.1.0")
-
     implementation("com.google.accompanist:accompanist-flowlayout:0.23.1")
+    implementation("com.google.mlkit:translate:17.0.3")
 }
